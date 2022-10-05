@@ -16,13 +16,15 @@ public class LoteRepository {
     }
 
     public Lote salvar(Lote lote) {
-        Long id = Long.valueOf(repository.size()+1);
-
-        this.repository.put(id, lote);
-        return this.repository.get(id);
+        this.repository.put(lote.getId(), lote);
+        return this.repository.get(lote.getId());
     }
 
     public List<Lote> listar() {
         return new ArrayList<>(this.repository.values());
+    }
+
+    public int getSize() {
+        return this.repository.size();
     }
 }

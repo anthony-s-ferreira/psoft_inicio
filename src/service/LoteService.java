@@ -18,7 +18,8 @@ public class LoteService {
 
 
     public Lote salvar(Produto produto, int quantidade, Date data_validade) {
-        return this.loteRepository.salvar(new Lote(produto, quantidade, data_validade));
+        Long id = Long.valueOf(this.loteRepository.getSize() +1);
+        return this.loteRepository.salvar(new Lote(id, produto, quantidade, data_validade));
     }
 
     public List<Lote> listar() {

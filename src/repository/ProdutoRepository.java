@@ -17,13 +17,15 @@ public class ProdutoRepository {
     }
 
     public Produto salvar(Produto produto) {
-        Long id = Long.valueOf(repository.size()+1);
-
-        this.repository.put(id, produto);
-        return this.repository.get(id);
+        this.repository.put(produto.getId(), produto);
+        return this.repository.get(produto.getId());
     }
 
     public List<Produto> listar() {
         return new ArrayList<>(this.repository.values());
+    }
+
+    public int getSize() {
+        return this.repository.size();
     }
 }
